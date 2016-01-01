@@ -1,0 +1,21 @@
+{
+	"FileVersion" : 3,
+	
+	"FriendlyName" : "Object Browser",
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"CreatedBy" : "Nick Darnell",
+	"CreatedByURL" : "http://nickdarnell.com",
+	"EngineVersion" : "4.11.0",
+	"Description" : "A tool for browsing live instances of UObjects in memory.",
+	"Category" : "Editor",
+	"EnabledByDefault" : true,
+	
+	"Modules" :
+	[
+		{
+			"Name" : "ObjectBrowser",
+			"Type" : "Editor"
+		}
+	]
+}
