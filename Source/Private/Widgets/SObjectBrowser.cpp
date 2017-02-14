@@ -1,6 +1,5 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
-#include "ObjectBrowserPrivatePCH.h"
 #include "SObjectBrowser.h"
 #include "SObjectBrowserTableRow.h"
 #include "PropertyEditorModule.h"
@@ -16,7 +15,6 @@
 /* SObjectBrowser interface
  *****************************************************************************/
 
-BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 void SObjectBrowser::Construct( const FArguments& InArgs )
 {
 	FilterClass = AActor::StaticClass();
@@ -210,11 +208,11 @@ TSharedRef<SWidget> SObjectBrowser::MakeFilterMenu()
 	return MenuBuilder.MakeWidget();
 }
 
-void SObjectBrowser::AddBoolFilter(FMenuBuilder& MenuBuilder, FText Text, FText ToolTip, bool* BoolOption)
+void SObjectBrowser::AddBoolFilter(FMenuBuilder& MenuBuilder, FText Text, FText InToolTip, bool* BoolOption)
 {
 	MenuBuilder.AddMenuEntry(
 		Text,
-		ToolTip,
+		InToolTip,
 		FSlateIcon(),
 		FUIAction(
 			FExecuteAction::CreateLambda([=]{ *BoolOption = !( *BoolOption ); RefreshList(); }),
@@ -225,8 +223,6 @@ void SObjectBrowser::AddBoolFilter(FMenuBuilder& MenuBuilder, FText Text, FText 
 		EUserInterfaceActionType::ToggleButton
 	);
 }
-
-END_SLATE_FUNCTION_BUILD_OPTIMIZATION
 
 void SObjectBrowser::RefreshList()
 {

@@ -1,8 +1,10 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
-#include "ObjectBrowserPrivatePCH.h"
 #include "ObjectBrowserModule.h"
 #include "Widgets/SObjectBrowser.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
+#include "WorkspaceMenuStructure.h"
+#include "EditorStyleSet.h"
 
 #include "Editor/WorkspaceMenuStructure/Public/WorkspaceMenuStructureModule.h"
 #include "SDockTab.h"

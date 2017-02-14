@@ -4,8 +4,9 @@ namespace UnrealBuildTool.Rules
 {
 	public class ObjectBrowser : ModuleRules
 	{
-		public ObjectBrowser(TargetInfo Target)
-		{
+        public ObjectBrowser(ReadOnlyTargetRules Target)
+            : base(Target)
+        {
             PrivateIncludePaths.Add("Private");
 
 			PublicDependencyModuleNames.AddRange(
@@ -25,6 +26,7 @@ namespace UnrealBuildTool.Rules
 					"UnrealEd",
                     "ClassViewer",
                     "PropertyEditor",
+					"WorkspaceMenuStructure"
 				}
 			);
 		}

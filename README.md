@@ -15,8 +15,7 @@ of objects in memory.  Handy for debugging state and verifying things are correc
 
 ## Supported Platforms
 
-This plug-in was last built against **Unreal Engine 4.11**. It works on all
-platforms.
+This plug-in was last built against **Unreal Engine 4.16**. It works on all platforms.
 
 
 ## Dependencies
@@ -42,6 +41,8 @@ This plug-in is enabled by default, so no need to enable it in the plug-in brows
 
 
 ## Support
+
+**Note: This plugin is not supported by Epic Games.**
 
 Please [file an issue](https://github.com/nickdarnell/ObjectBrowser/issues),
 submit a [pull request](https://github.com/nickdarnell/ObjectBrowser/pulls?q=is%3Aopen+is%3Apr)

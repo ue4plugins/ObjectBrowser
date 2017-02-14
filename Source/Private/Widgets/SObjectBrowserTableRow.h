@@ -1,8 +1,14 @@
-// Copyright 1998-2015 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "ClassIconFinder.h"
+#include "Toolkits/AssetEditorManager.h"
+#include "CoreMinimal.h"
+#include "Widgets/SWidget.h"
+#include "Widgets/Views/STableRow.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Input/Reply.h"
 
 #define LOCTEXT_NAMESPACE "SObjectBrowserTableRow"
 
@@ -34,7 +40,7 @@ public:
 	 */
 	void Construct( const FArguments& InArgs, const TSharedRef<STableViewBase>& InOwnerTableView )
 	{
-		Object = InArgs._Object;
+		BrowserObject = InArgs._Object;
 
 		if ( UObject* Obj = InArgs._Object->Object.Get() )
 		{
@@ -44,7 +50,7 @@ public:
 			HighlightText = InArgs._HighlightText;
 
 			// Get selection icon based on actor(s) classes and add before the selection label
-			ClassIcon = FClassIconFinder::FindIconForClass(Obj->GetClass());
+			ClassIcon = FSlateIconFinder::FindIconForClass(Obj->GetClass()).GetIcon();
 		}
 
 		SMultiColumnTableRow<TSharedPtr<int32> >::Construct(FSuperRowType::FArguments(), InOwnerTableView);
@@ -52,7 +58,6 @@ public:
 
 public:
 
-	BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 	virtual TSharedRef<SWidget> GenerateWidgetForColumn( const FName& ColumnName ) override
 	{
 		if ( ColumnName == NAME_Class )
@@ -87,11 +92,20 @@ public:
 
 		return SNullWidget::NullWidget;
 	}
-	END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
+	virtual FReply OnMouseButtonDoubleClick(const FGeometry& InMyGeometry, const FPointerEvent& InMouseEvent) override
+	{
+		if ( UObject* LiveObject = BrowserObject->Object.Get() )
+		{
+			FAssetEditorManager::Get().OpenEditorForAsset(LiveObject);
+		}
+
+		return FReply::Handled();
+	}
 
 private:
 
-	TSharedPtr<FBrowserObject> Object;
+	TSharedPtr<FBrowserObject> BrowserObject;
 
 	const FSlateBrush* ClassIcon;
 
