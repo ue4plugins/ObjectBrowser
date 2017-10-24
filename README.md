@@ -15,7 +15,7 @@ of objects in memory.  Handy for debugging state and verifying things are correc
 
 ## Supported Platforms
 
-This plug-in was last built against **Unreal Engine 4.16**. It works on all platforms.
+This plug-in was last built against **Unreal Engine 4.17**. It works on all platforms.
 
 
 ## Dependencies
