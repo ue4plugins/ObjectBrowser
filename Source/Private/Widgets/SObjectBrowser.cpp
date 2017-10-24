@@ -1,5 +1,5 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
+#include "ObjectBrowserPrivatePCH.h"
 #include "SObjectBrowser.h"
 #include "SObjectBrowserTableRow.h"
 #include "PropertyEditorModule.h"
@@ -317,7 +317,7 @@ FText SObjectBrowser::GetFilterClassText() const
 FReply SObjectBrowser::OnClassSelectionClicked()
 {
 	const FText TitleText = LOCTEXT("PickClass", "Pick Class");
-	
+
 	FClassViewerInitializationOptions Options;
 	Options.Mode = EClassViewerMode::ClassPicker;
 
@@ -356,7 +356,7 @@ void SObjectBrowser::HandleListSelectionChanged(TSharedPtr<FBrowserObject> InIte
 
 	TArray< TWeakObjectPtr<UObject> > Selection;
 	Selection.Add(InItem->Object);
-	
+
 	PropertyView->SetObjects(Selection);
 }
 

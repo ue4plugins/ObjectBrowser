@@ -1,5 +1,5 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
+#include "ObjectBrowserPrivatePCH.h"
 #include "ObjectBrowserModule.h"
 #include "Widgets/SObjectBrowser.h"
 #include "Widgets/DeclarativeSyntaxSupport.h"
