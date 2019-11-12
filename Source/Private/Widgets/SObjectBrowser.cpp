@@ -1,5 +1,6 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
+#include "ObjectBrowserModule.h"
 #include "SObjectBrowser.h"
 #include "SObjectBrowserTableRow.h"
 #include "PropertyEditorModule.h"
